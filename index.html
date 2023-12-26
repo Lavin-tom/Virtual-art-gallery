@@ -6,36 +6,63 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   <title>Augmental-Reality-Frame</title>
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+  <style>
+    #scanInstructions {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <div id="scanInstructions">
+    <h2>Scan the QR Code</h2>
+    <p>Point your device's camera at the QR code to start the augmented reality experience.</p>
+  </div>
+  
   <a-scene 
     mindar-image="imageTargetSrc: /compiledTarget.mind" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
-	<a-assets>
-		<img id="card" src="https://raw.githubusercontent.com/Lavin-tom/Lavin-tom.github.io/main/assets/ar.jpeg" onload="getImageDimensions()"/>
-    </a-assets>
-	<script>
-      var current_width, current_height; // Define variables to store dimensions
-		function getImageDimensions(){ 
-			var current_image = document.getElementById("card"); 
-			current_width = current_image.width; 
-			current_height = current_image.height;
-			createScene(current_width, current_height); // Pass dimensions to createScene()
-		} 
 
-		function createScene(width, height){
-			var scene = document.querySelector("a-scene");
-			var plane = document.createElement("a-plane");
-			plane.setAttribute("src","#card");
-			plane.setAttribute("position","0 0 0");
-			plane.setAttribute("height", height); // Use passed height
-			plane.setAttribute("width", width);   // Use passed width
-			plane.setAttribute("rotation","0 0 0");
-			scene.appendChild(plane);
-		}
+    <a-assets>
+      <img id="card" src="https://raw.githubusercontent.com/Lavin-tom/Lavin-tom.github.io/main/assets/ar.jpeg" onload="getImageDimensions()"/>
+    </a-assets>
+
+    <script>
+      var current_width, current_height;
+
+      function getImageDimensions(){ 
+        var current_image = document.getElementById("card"); 
+        current_width = current_image.width; 
+        current_height = current_image.height;
+        createScene(current_width, current_height);
+        showScanInstructions();
+      } 
+
+      function createScene(width, height){
+        var scene = document.querySelector("a-scene");
+        var plane = document.createElement("a-plane");
+        plane.setAttribute("src","#card");
+        plane.setAttribute("position","0 0 0");
+        plane.setAttribute("height", height);
+        plane.setAttribute("width", width);
+        plane.setAttribute("rotation","0 0 0");
+        scene.appendChild(plane);
+      }
+
+      function showScanInstructions() {
+        var instructions = document.getElementById("scanInstructions");
+        instructions.style.display = "block";
+      }
     </script>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
