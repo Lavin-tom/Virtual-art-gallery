@@ -16,11 +16,15 @@
     device-orientation-permission-ui="enabled: false">
 
     <a-assets>
-      <img id="card" src="https://raw.githubusercontent.com/Lavin-tom/Lavin-tom.github.io/main/assets/ar.jpeg" onload="getImageDimensions()"/>
+      <img id="card" src="https://raw.githubusercontent.com/Lavin-tom/Lavin-tom.github.io/main/assets/ar.jpeg"/>
     </a-assets>
 
     <script>
       var current_width, current_height;
+
+      document.getElementById("card").onload = function() {
+        getImageDimensions();
+      };
 
       function getImageDimensions(){ 
         var current_image = document.getElementById("card"); 
