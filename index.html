@@ -9,14 +9,14 @@
 </head>
 <body>
     <a-scene 	
-    mindar-image="imageTargetSrc: /targets.mind" 	
+    mindar-image="imageTargetSrc: targets.mind" 	
     color-space="sRGB" 	
     renderer="colorManagement: true, physicallyCorrectLights" 	
     vr-mode-ui="enabled: false" 	
     device-orientation-permission-ui="enabled: false">	
 
         <a-assets>
-            <img id="card" src="assets/ar.jpeg"/>
+            <img id="card" src="assets/ar.jpeg" onload="getImageDimensions()"/>
         </a-assets>
 		
 	<script>	
