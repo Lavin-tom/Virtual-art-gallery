@@ -16,25 +16,34 @@
     device-orientation-permission-ui="enabled: false">	
 
         <a-assets>
-            <img id="card" src="assets/ar.jpeg"/>
+            <img id="card" src="assets/ar.jpeg" onload="getImageDimensions()"/>
         </a-assets>
 		
-        <script>    
-            AFRAME.registerComponent('auto-scale-plane', {
-                init: function () {
-                    var el = this.el;
-                    var image = document.getElementById('card');
-                    
-                    el.setAttribute('src', '#card');
-                    el.setAttribute('height', image.height);
-                    el.setAttribute('width', image.width);
-                    el.setAttribute('rotation', '0 0 0');
-                }
-            });
-        </script>
+	<script>	
+      var current_width, current_height; // Define variables to store dimensions	
+		function getImageDimensions(){ 	
+			var current_image = document.getElementById("card"); 	
+			current_width = current_image.width; 	
+			current_height = current_image.height;	
+			createScene(current_width, current_height); // Pass dimensions to createScene()	
+		} 	
+
+		function createScene(width, height){	
+			var scene = document.querySelector("a-scene");	
+			var plane = document.createElement("a-plane");	
+			plane.setAttribute("src","#card");	
+			plane.setAttribute("position","0 0 0");	
+			plane.setAttribute("height", height); // Use passed height	
+			plane.setAttribute("width", width);   // Use passed width	
+			plane.setAttribute("rotation","0 0 0");	
+			scene.appendChild(plane);	
+		}	
+    </script>
 	
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-        <a-entity mindar-image-target="targetIndex: 0" auto-scale-plane></a-entity>
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-plane src="#card" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+        </a-entity>
     </a-scene>
 </body>
 </html>
