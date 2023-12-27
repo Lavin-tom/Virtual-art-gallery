@@ -6,26 +6,8 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   <title>Augmental-Reality-Frame</title>
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
-  <style>
-    #scanInstructions {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      display: none;
-    }
-  </style>
 </head>
 <body>
-  <div id="scanInstructions">
-    <h2>Scan the QR Code</h2>
-    <p>Point your device's camera at the QR code to start the augmented reality experience.</p>
-  </div>
-  
   <a-scene 
     mindar-image="imageTargetSrc: /compiledTarget.mind" 
     color-space="sRGB" 
@@ -57,11 +39,6 @@
         plane.setAttribute("width", width);
         plane.setAttribute("rotation","0 0 0");
         scene.appendChild(plane);
-      }
-
-      function showScanInstructions() {
-        var instructions = document.getElementById("scanInstructions");
-        instructions.style.display = "block";
       }
     </script>
 
