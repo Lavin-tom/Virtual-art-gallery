@@ -62,9 +62,21 @@
                 //this.el.emit('targetFound');
             }
         });		
-		function changeARImage(newImageId) {
+		function changeARImage(direction) {
 			// Get the AR entity
 			const arEntity = document.querySelector("#mytarget a-plane");
+		
+			// Get the current image ID
+			const currentImageId = arEntity.getAttribute("src").slice(1); // Remove the "#" at the beginning
+		
+			// Extract the numeric part of the image ID
+			const currentImageIndex = parseInt(currentImageId.replace("card", ""));
+		
+			// Calculate the new index based on the direction
+			const newIndex = (currentImageIndex + direction + 4) % 4;
+		
+			// Get the new image ID
+			const newImageId = "card" + newIndex;
 		
 			// Set the src attribute of the a-plane entity
 			arEntity.setAttribute("src", `#${newImageId}`);
@@ -180,8 +192,8 @@
 	
 	        <!-- Two buttons at the bottom of the page -->
         <div id="button-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center;">
-            <button onclick="changeARImage('card1')">Next</button>
-            <button onclick="changeARImage('card2')">Back</button>
+			<button onclick="changeARImage(1)">Next</button>
+			<button onclick="changeARImage(-1)">Back</button>
         </div>
     <a-scene 	
     mindar-image="uiScanning: #scanning-overlay;
