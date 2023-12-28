@@ -64,9 +64,17 @@
         });		
 		// Function to change the AR image
 		function changeARImage(newImageId) {
-			// Get the AR entity and change its source
+			// Get the AR entity
 			const arEntity = document.querySelector("#mytarget a-plane");
-			card1.setAttribute("src", `#${newImageId}`);
+
+			// Get the material component of the entity
+			const materialComponent = arEntity.components.material;
+
+			// Update the src property of the material component
+			materialComponent.data.src = `#${newImageId}`;
+
+			// Emit a material texture update event
+			arEntity.emit('materialtextureupdate');
 		}		
     </script>
 	
