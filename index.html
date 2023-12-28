@@ -8,24 +8,6 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 		
 	<script>	
-      var current_width, current_height; // Define variables to store dimensions	
-		function getImageDimensions(){ 	
-			var current_image = document.getElementById("card"); 	
-			current_width = current_image.width; 	
-			current_height = current_image.height;	
-			createScene(current_width, current_height); // Pass dimensions to createScene()	
-		} 	
-
-		function createScene(width, height){	
-			var scene = document.querySelector("a-scene");	
-			var plane = document.createElement("a-plane");	
-			plane.setAttribute("src","#card");	
-			plane.setAttribute("position","0 0 0");	
-			plane.setAttribute("height", height); // Use passed height	
-			plane.setAttribute("width", width);   // Use passed width	
-			plane.setAttribute("rotation","0 0 0");	
-			scene.appendChild(plane);	
-		}	
         const showPortfolio = (done) => {
             const portfolio = document.querySelector("#portfolio-panel");
             const portfolioLeftButton = document.querySelector("#portfolio-left-button");
@@ -39,11 +21,11 @@
 			portfolioLeftButton.setAttribute("visible", true);
 			portfolioRightButton.setAttribute("visible", true);
 
-            const showPortfolioItem = (item) => {
-                for (let i = 0; i <= 2; i++) {
-                    document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
-                }
-            }
+			const showPortfolioItem = (item) => {
+				for (let i = 0; i <= 2; i++) {
+					document.querySelector("#portfolio-item" + (i+1)).setAttribute("visible", i === item);
+				}
+			};
             const id = setInterval(() => {
                 y += 0.008;
                 if (y >= 0.6) {
@@ -158,7 +140,7 @@
             }
         }
 		#portfolio-left-button, #portfolio-right-button {
-		visibility: visible !important;
+			visibility: visible;
 		}		
 	</style>
 </head>
@@ -204,8 +186,8 @@
                 <a-image class="clickable" src="#card3" alpha-test="0.5" position="0 0 0" height="1" width="1"></a-image>
             </a-entity>				
 			
-            <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15"></a-image>
-            <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15"></a-image> 			
+            <a-image visible=true id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15"></a-image>
+            <a-image visible=true id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15"></a-image> 			
 		 </a-entity>
 		</a-entity>
     </a-scene>
