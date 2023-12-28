@@ -174,21 +174,21 @@
 	
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
         <a-entity id="mytarget" mindar-image-target="targetIndex: 0">
-          <a-plane src="#card1" position=".2 .2 .2" height=".8" width=".8" rotation="0 0 0"></a-plane>
+          <a-plane src="#card1" position="0 0 0" height=".8" width=".8" rotation="0 0 0"></a-plane>
            
 		  <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">       
             <a-entity id="portfolio-item0" visible=true>
-                <a-image class="clickable" src="#card1" alpha-test="0.5" position="0.2 0.2 0.2" height="1" width="1"></a-image>
+                <a-image class="clickable" src="#card1" alpha-test="0.5" position="0 0 0" height="1" width="1"></a-image>
             </a-entity>
             <a-entity id="portfolio-item1" visible=false>
-                <a-image class="clickable" src="#card2" alpha-test="0.5" position="0.2 0.2 0.2" height="1" width="1"></a-image>
+                <a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="1" width="1"></a-image>
             </a-entity>
             <a-entity id="portfolio-item2" visible=false>
-                <a-image class="clickable" src="#card3" alpha-test="0.5" position="0.2 0.2 0.2" height="1" width="1"></a-image>
+                <a-image class="clickable" src="#card3" alpha-test="0.5" position="0 0 0" height="1" width="1"></a-image>
             </a-entity>				
 			
-            <a-image visible=true id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.1 0 0" height="0.15" width="0.15"></a-image>
-            <a-image visible=true id="portfolio-right-button" class="clickable" src="#icon-right" position="0.1 0 0" height="0.15" width="0.15"></a-image> 			
+            <a-image visible=true id="portfolio-left-button" class="clickable" src="#icon-left" position="--0.5 0 0" height="0.15" width="0.15"></a-image>
+            <a-image visible=true id="portfolio-right-button" class="clickable" src="#icon-right" position="-0.5 0 0" height="0.15" width="0.15"></a-image> 			
 		 </a-entity>
 		</a-entity>
     </a-scene>
