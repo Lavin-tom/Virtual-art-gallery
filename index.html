@@ -62,6 +62,12 @@
                 //this.el.emit('targetFound');
             }
         });		
+        // Function to change the AR image
+        function changeARImage(newImageId) {
+            // Get the AR entity and change its source
+            const arEntity = document.querySelector("#ar-entity");
+            arEntity.setAttribute("material", "src", `#${newImageId}`);
+        }		
     </script>
 	
 	<style>
@@ -154,6 +160,11 @@
         </div>
     </div>
 	
+	        <!-- Two buttons at the bottom of the page -->
+        <div id="button-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center;">
+            <button onclick="changeARImage('card1')">Change to AR1</button>
+            <button onclick="changeARImage('card2')">Change to AR2</button>
+        </div>
     <a-scene 	
     mindar-image="uiScanning: #scanning-overlay;
 	imageTargetSrc: targets.mind" 	
@@ -166,7 +177,7 @@
             <img id="icon-left" src="assets/left.png" />
             <img id="icon-right" src="assets/right.png" />	
             <img id="card" src="assets/card.jpg"/>		
-            <img id="card1" src="assets/ar1.jpg"/>		
+            <img id="card1" src="assets/ar1.jpg"/>		=
 			<img id="card2" src="assets/ar2.jpg"/>	
 			<img id="card3" src="assets/ar3.jpg"/>	
         </a-assets>
