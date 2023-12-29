@@ -75,6 +75,14 @@
 				const newImageId = "card" + newIndex;
 			
 				arEntity.setAttribute("src", `#${newImageId}`);
+				
+				// Update the icons using class selectors
+				const iconLeft = document.querySelector(".icon-left");
+				const iconRight = document.querySelector(".icon-right");
+
+				// Update the icons accordingly
+				iconLeft.onclick = function() { changeARImage(-1); };
+				iconRight.onclick = function() { changeARImage(1); };
 			}		
 		</script>
 		
