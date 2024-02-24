@@ -87,7 +87,7 @@ git clone https://github.com/Lavin-tom/Virtual-art-gallery.git
 
   
 
-3. **Interact with AR:** Interact with the augmented reality content by pointing your device's camera to the predefined image.
+3. **Interact with AR:** Interact with the augmented reality content by pointing your device's camera to the target image.
 
   
 
