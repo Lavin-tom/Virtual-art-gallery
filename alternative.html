@@ -1,0 +1,223 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Augmental-Reality-Frame</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes">	
+		<script src="script/aframe.min.js"></script>
+		<script src="script/mindar-image-aframe.prod.js"></script>
+		<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+			
+		<script>	
+			const showPortfolio = (done) => {
+				const portfolio = document.querySelector("#portfolio-panel");
+				const portfolioLeftButton = document.querySelector("#portfolio-left-button");
+				const portfolioRightButton = document.querySelector("#portfolio-right-button");
+
+				let y = 0;
+				let currentItem = 0;
+
+				portfolio.setAttribute("visible", true);
+				
+				portfolioLeftButton.setAttribute("visible", true);
+				portfolioRightButton.setAttribute("visible", true);
+
+				const showPortfolioItem = (item) => {
+					for (let i = 0; i <= 2; i++) {
+						document.querySelector("#portfolio-item" + (i+1)).setAttribute("visible", i === item);
+					}
+				};
+				const id = setInterval(() => {
+					y += 0.008;
+					if (y >= 0.6) {
+						clearInterval(id);
+						portfolioLeftButton.addEventListener('click', () => {
+						currentItem = (currentItem + 1) % 3;
+						showPortfolioItem(currentItem);
+						});
+
+						portfolioRightButton.addEventListener('click', () => {
+						currentItem = (currentItem - 1 + 3) % 3;
+						showPortfolioItem(currentItem);
+						});
+						
+						setTimeout(() => {
+							done();
+						}, 500);
+					}
+					portfolio.setAttribute("position", "0 " + y + " -0.01");
+				}, 10);
+			};	
+			AFRAME.registerComponent('mytarget', {
+				init: function() {
+					this.el.addEventListener('targetFound', event => {
+						console.log("target found");
+							setTimeout(() => {
+								showPortfolio();
+							}, 300);
+					});
+					this.el.addEventListener('targetLost', event => {
+						console.log("target found");
+					});
+					//this.el.emit('targetFound');
+				}
+			});			
+		</script>
+		
+		<style>
+        body {
+            margin: 0;
+        }
+
+        .example-container {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #example-scanning-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 2;
+        }
+
+        @media (min-aspect-ratio: 1/1) {
+            #example-scanning-overlay .inner {
+                width: 50vh;
+                height: 50vh;
+            }
+        }
+
+        @media (max-aspect-ratio: 1/1) {
+            #example-scanning-overlay .inner {
+                width: 80vw;
+                height: 80vw;
+            }
+        }
+
+        #example-scanning-overlay .inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to right, white 10px, transparent 10px) 0 0, linear-gradient(to right, white 10px, transparent 10px) 0 100%, linear-gradient(to left, white 10px, transparent 10px) 100% 0, linear-gradient(to left, white 10px, transparent 10px) 100% 100%, linear-gradient(to bottom, white 10px, transparent 10px) 0 0, linear-gradient(to bottom, white 10px, transparent 10px) 100% 0, linear-gradient(to top, white 10px, transparent 10px) 0 100%, linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+            background-repeat: no-repeat;
+            background-size: 40px 40px;
+        }
+
+        #example-scanning-overlay.hidden {
+            display: none;
+        }
+
+        #example-scanning-overlay img {
+            opacity: 0.6;
+            width: 90%;
+            align-self: center;
+        }
+
+        #example-scanning-overlay .inner .scanline {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: white;
+            animation: move 2s linear infinite;
+        }
+
+        @keyframes move {
+            0%,
+            100% {
+                top: 0%
+            }
+            50% {
+                top: calc(100% - 10px)
+            }
+        }	
+		</style>
+	</head>
+	<body>
+	  <div class="example-container">
+        <div id="example-scanning-overlay" class="hidden">
+            <div class="inner">
+                <img src="./assets/card.jpg" />
+                <div class="scanline"></div>
+            </div>
+        </div>
+			<div id="button-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center;">
+				<img src="assets/left.png" onclick="changeARImage(-1)" style="width: 30px; height: 30px; cursor: pointer; margin-right: 10px;">
+				<img src="assets/right.png" onclick="changeARImage(1)" style="width: 30px; height: 30px; cursor: pointer;">
+			</div>
+        <a-scene mindar-image="imageTargetSrc: targets.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
+            vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">	
+
+			<a-assets>
+                <img id="card" src="./assets/favicon.png" />
+                <img id="icon-web" src="./assets/icons/web.png" />
+                <img id="icon-location" src="./assets/icons/location.png" />
+                <img id="icon-profile" src="./assets/icons/profile.png" />
+                <img id="icon-phone" src="./assets/icons/phone.png" />
+                <img id="icon-email" src="./assets/icons/email.png" />
+                <img id="icon-play" src="./assets/icons/play.png" />
+                <img id="icon-left" src="./assets/icons/left.png" />
+                <img id="icon-right" src="./assets/icons/right.png" />
+				<img id="card" src="assets/card.jpg"/>		
+				<img id="card0" src="assets/ar1.jpg"/>		
+				<img id="card1" src="assets/ar2.jpg"/>	
+				<img id="card2" src="assets/ar3.jpg"/>	
+				<img id="card3" src="assets/ar4.jpg"/>	
+				<img id="card4" src="assets/ar5.jpg"/>	
+				<img id="card5" src="assets/ar6.jpg"/>	
+				<img id="card6" src="assets/ar7.jpg"/>	
+				<img id="card7" src="assets/ar8.jpg"/>	
+				<img id="card8" src="assets/ar9.jpg"/>	
+				<img id="card9" src="assets/ar10.jpg"/>
+			</a-assets>
+
+		
+			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
+            <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+                <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+
+                <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">
+                    <a-text value="love_in_tom" color="black" align="center" width="2" position="0 0.4 0"></a-text>
+                    <a-entity id="portfolio-item0">
+                        <a-image id="card0" class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                        </a-image>
+                    </a-entity>
+                    <a-entity id="portfolio-item1" visible=false>
+                        <a-image class="clickable" src="#card1" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                        </a-image>
+                    </a-entity>
+                    <a-entity id="portfolio-item2" visible=false>
+                        <a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                        </a-image>
+                    </a-entity>
+					
+                    <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15"></a-image>
+                    <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15"></a-image>
+                </a-entity>
+
+                <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.42 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+                <a-image visible=false id="web-button" class="clickable" src="#icon-web" alpha-test="0.5" position="-0.14 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+                <a-image visible=false id="email-button" class="clickable" src="#icon-email" position="0.14 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+                <a-image visible=false id="location-button" class="clickable" src="#icon-location" position="0.42 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+                <!--<a-video id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="https://www.youtube.com/embed/Ib-Q2-aXEL0"></a-video>-->
+
+                <a-text id="text" class="clickable" value="love_in_tom" color="black" align="center" width="2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.5"></a-text>
+            </a-entity>
+        </a-scene>
+    </div>
+</body>
+
+</html>
