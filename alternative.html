@@ -47,7 +47,7 @@
 					}
 					portfolio.setAttribute("position", "0 " + y + " -0.01");
 				}, 10);
-			};	
+			};
 			AFRAME.registerComponent('mytarget', {
 				init: function() {
 					this.el.addEventListener('targetFound', event => {
@@ -61,7 +61,7 @@
 					});
 					//this.el.emit('targetFound');
 				}
-			});			
+			});				
 		</script>	
 		<style>
         body {
@@ -176,8 +176,8 @@
 				<!--<a-plane src="#card" position="0 -1 0" height="0.552" width="1" rotation="0 0 0"></a-plane>-->
 			
 				<!-- Portfolio panel entity -->
-				<a-entity id="portfolio-panel" position="0 0 -0.01" visible="false">
-					<a-text value="Augmental Reality Frame" color="black" align="center" width="2" position="0 1.25 0"></a-text>
+				<a-entity id="portfolio-panel" position="0 -0.6 -0.01" visible="false">
+					<a-text value="Augmental Reality Frame" color="black" align="center" width="2" position="0 0.7 0"></a-text>
 					
 					<a-entity id="portfolio-item0">
 						<a-image class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
