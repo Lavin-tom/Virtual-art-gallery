@@ -62,8 +62,7 @@
 					//this.el.emit('targetFound');
 				}
 			});			
-		</script>
-		
+		</script>	
 		<style>
         body {
             margin: 0;
@@ -150,10 +149,6 @@
                 <div class="scanline"></div>
             </div>
         </div>
-			<div id="button-container" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center;">
-				<img src="assets/left.png" onclick="changeARImage(-1)" style="width: 30px; height: 30px; cursor: pointer; margin-right: 10px;">
-				<img src="assets/right.png" onclick="changeARImage(1)" style="width: 30px; height: 30px; cursor: pointer;">
-			</div>
         <a-scene mindar-image="imageTargetSrc: targets.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
             vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">	
 
@@ -183,38 +178,31 @@
 		
 			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
             <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
+			
                 <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
 
                 <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">
+				
                     <a-text value="love_in_tom" color="black" align="center" width="2" position="0 0.4 0"></a-text>
+					
                     <a-entity id="portfolio-item0">
-                        <a-image id="card0" class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
-                        </a-image>
+                        <a-image class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="0.552" width="1"></a-image>
                     </a-entity>
+					
                     <a-entity id="portfolio-item1" visible=false>
-                        <a-image class="clickable" src="#card1" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
-                        </a-image>
+                        <a-image class="clickable" src="#card1" alpha-test="0.5" position="0 0 0" height="0.552" width="1"></a-image>
                     </a-entity>
+					
                     <a-entity id="portfolio-item2" visible=false>
-                        <a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
-                        </a-image>
+                        <a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="0.552" width="1"></a-image>
                     </a-entity>
 					
                     <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15"></a-image>
                     <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15"></a-image>
+					
                 </a-entity>
 
-                <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.42 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
-
-                <a-image visible=false id="web-button" class="clickable" src="#icon-web" alpha-test="0.5" position="-0.14 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
-
-                <a-image visible=false id="email-button" class="clickable" src="#icon-email" position="0.14 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
-
-                <a-image visible=false id="location-button" class="clickable" src="#icon-location" position="0.42 -0.5 0" height="0.15" width="0.15" animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
-
-                <!--<a-video id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="https://www.youtube.com/embed/Ib-Q2-aXEL0"></a-video>-->
-
-                <a-text id="text" class="clickable" value="love_in_tom" color="black" align="center" width="2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.5"></a-text>
+                <a-text id="text" class="clickable" value="love_in_tom" color="black" align="center" width="1.5" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.5"></a-text>
             </a-entity>
         </a-scene>
     </div>
