@@ -23,7 +23,7 @@
 				portfolioRightButton.setAttribute("visible", true);
 
 				const showPortfolioItem = (item) => {
-					for (let i = 0; i <= 2; i++) {
+					for (let i = 0; i <= 8; i++) {
 						document.querySelector("#portfolio-item" + (i+1)).setAttribute("visible", i === item);
 					}
 				};
@@ -32,12 +32,12 @@
 					if (y >= 0.6) {
 						clearInterval(id);
 						portfolioLeftButton.addEventListener('click', () => {
-						currentItem = (currentItem + 1) % 3;
+						currentItem = (currentItem + 1) % 9;
 						showPortfolioItem(currentItem);
 						});
 
 						portfolioRightButton.addEventListener('click', () => {
-						currentItem = (currentItem - 1 + 3) % 3;
+						currentItem = (currentItem - 1 + 9) % 9;
 						showPortfolioItem(currentItem);
 						});
 						
@@ -176,8 +176,8 @@
 				<!--<a-plane src="#card" position="0 -1 0" height="0.552" width="1" rotation="0 0 0"></a-plane>-->
 			
 				<!-- Portfolio panel entity -->
-				<a-entity id="portfolio-panel" position="-0.6 -0.6 -0.01" visible="false">
-					<a-text value="Augmental Reality Frame" color="black" align="center" width="2" position="0 0.7 0"></a-text>
+				<a-entity id="portfolio-panel" position="0 0 -0.01" visible="false">
+					<a-text value="ArtSphere AugmentaFrame" color="black" align="center" width="2" position="0 0.7 0"></a-text>
 					
 					<a-entity id="portfolio-item0">
 						<a-image class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
@@ -188,6 +188,24 @@
 					<a-entity id="portfolio-item2" visible="false">
 						<a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
+					<a-entity id="portfolio-item3">
+						<a-image class="clickable" src="#card3" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>
+					<a-entity id="portfolio-item4" visible="false">
+						<a-image class="clickable" src="#card4" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>
+					<a-entity id="portfolio-item5" visible="false">
+						<a-image class="clickable" src="#card5" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>
+					<a-entity id="portfolio-item6">
+						<a-image class="clickable" src="#card6" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>
+					<a-entity id="portfolio-item7" visible="false">
+						<a-image class="clickable" src="#card7" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>
+					<a-entity id="portfolio-item8" visible="false">
+						<a-image class="clickable" src="#card8" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>					
 					<a-image id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
 					<a-image id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
 				</a-entity>
