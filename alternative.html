@@ -62,10 +62,11 @@
 					this.el.addEventListener('targetFound', event => {
 						console.log("target found");
 							setTimeout(() => {
-								showPortfolio() => {
+								showPortfolio(() => {
 									setTimeout(() => {
 										showInfo();
 										}, 300);
+									});
 							}, 300);
 					});
 					this.el.addEventListener('targetLost', event => {
