@@ -9,6 +9,13 @@
 		<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 			
 		<script>	
+			const showInfo = () => {
+				const instaPost = document.querySelector("#insta-post");
+				let currentTab = '';
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","https://www.instagram.com/love_in_tom");
+				}
+				
 			const showPortfolio = (done) => {
 				const portfolio = document.querySelector("#portfolio-panel");
 				const portfolioLeftButton = document.querySelector("#portfolio-left-button");
@@ -53,7 +60,10 @@
 					this.el.addEventListener('targetFound', event => {
 						console.log("target found");
 							setTimeout(() => {
-								showPortfolio();
+								showPortfolio() => {
+									setTimeout(() => {
+										showInfo();
+										}, 300);
 							}, 300);
 					});
 					this.el.addEventListener('targetLost', event => {
@@ -180,31 +190,31 @@
 					<a-text value="ArtSphere AugmentaFrame" color="black" align="center" width="1.75" position="0 0.7 0"></a-text>
 					
 					<a-entity id="portfolio-item0">
-						<a-image class="clickable" src="#card0" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card0" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item1" visible="false">
-						<a-image class="clickable" src="#card1" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card1" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item2" visible="false">
-						<a-image class="clickable" src="#card2" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card2" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
-					<a-entity id="portfolio-item3">
-						<a-image class="clickable" src="#card3" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					<a-entity id="portfolio-item3" visible="false">
+						<a-image class="clickable" id="insta-post" src="#card3" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item4" visible="false">
 						<a-image class="clickable" src="#card4" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item5" visible="false">
-						<a-image class="clickable" src="#card5" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card5" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
-					<a-entity id="portfolio-item6">
-						<a-image class="clickable" src="#card6" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					<a-entity id="portfolio-item6" visible="false">
+						<a-image class="clickable" id="insta-post" src="#card6" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item7" visible="false">
-						<a-image class="clickable" src="#card7" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card7" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item8" visible="false">
-						<a-image class="clickable" src="#card8" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card8" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>					
 					<a-image id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
 					<a-image id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
