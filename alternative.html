@@ -16,6 +16,11 @@
 				text.setAttribute("value","https://www.instagram.com/love_in_tom");
 				currentTab = 'Insta';
 				});
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Insta') {
+						window.location.href = "https://www.instagram.com/love_in_tom";
+						}
+					});	
 				}
 				
 			const showPortfolio = (done) => {
