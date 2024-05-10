@@ -9,107 +9,53 @@
 		<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 			
 		<script>	
-			const showInfo = () => {
-				const instaPost1 = document.querySelector("#insta-post1");
-				const instaPost2 = document.querySelector("#insta-post2");
-				const instaPost3 = document.querySelector("#insta-post3");
-				const instaPost4 = document.querySelector("#insta-post4");
-				const instaPost5 = document.querySelector("#insta-post5");
-				const instaPost6 = document.querySelector("#insta-post6");
-				const instaPost7 = document.querySelector("#insta-post7");
-				const instaPost8 = document.querySelector("#insta-post8");
-				const instaPost9 = document.querySelector("#insta-post9");
-				const instaPost10 = document.querySelector("#insta-post10");
-				
+				const showInfo = () => {
+				const text = document.querySelector("#text");
+				const instaPosts = document.querySelectorAll(".insta-post");
+			
 				let currentTab = '';
-				instaPost1.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost1';
-				});
-				instaPost2.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost2';
-				});		
-				instaPost3.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost3';
-				});
-				instaPost4.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost4';
-				});
-				instaPost5.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost5';
-				});
-				instaPost6.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost6';
-				});
-				instaPost7.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost7';
-				});
-				instaPost8.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost8';
-				});		
-				instaPost9.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost9';
-				});
-				instaPost10.addEventListener('click',function(evt){
-				text.setAttribute("value","show in Instagram");
-				currentTab = 'Instapost10';
-				});				
+			
+				instaPosts.forEach((post, index) => {
+					post.addEventListener('click', function(evt) {
+						text.setAttribute("value", "Show in Instagram");
+						currentTab = 'Instapost' + (index + 1);
+					});
+				});			
 				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost1') {
+					switch(currentTab) {
+					case 'Instapost1':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/C0CORFrP20g/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost2') {
+						break;
+					case 'Instapost2':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CvhnaI2Pp0Z/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost3') {
+						break;
+					case 'Instapost3':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CvPfeZspJ1h/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost4') {
+						break;
+					case 'Instapost4':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/Cu9o_2zP9N7/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost5') {
+						break;
+					case 'Instapost5':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/Ct1kv1tNq84/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost6') {
+						break;
+					case 'Instapost6':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CuZo_OrvcPL/";
-						}
-					});
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost7') {
+						break;
+					case 'Instapost7':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CwFv4HGvS5V/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost8') {
+						break;
+					case 'Instapost8':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CuHiEqON6sw/";
-						}
-					});	
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost9') {
+						break;
+					case 'Instapost9':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/CurnrOKvoJB/";
-						}
-					});
-				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Instapost10') {
+						break;
+					case 'Instapost10':
 						window.location.href = "https://www.instagram.com/love_in_tom/p/C4DsUuSPGr3/";
+						break;
+					default:
+						windows.location.href = "https://www.instagram.com/love_in_tom";
+						break;
 						}
 					});					
 				}
@@ -322,7 +268,7 @@
 				</a-entity>
 			
 				<!-- Text entity -->
-				<a-text id="text" class="clickable" value="love_in_tom" color="black" align="center" width="1.5" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 1.2;" material="opacity: 0.5"></a-text>
+				<a-text id="text" class="clickable" value="love_in_tom" color="black" align="center" width="1.5" position="0 -0.8 0" geometry="primitive:plane; height: 0.1; width: 1.2;" material="opacity: 0.5"></a-text>
 			</a-entity>
 
         </a-scene>
