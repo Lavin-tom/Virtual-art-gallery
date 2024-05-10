@@ -13,14 +13,95 @@
 				const instaPost = document.querySelector("#insta-post");
 				let currentTab = '';
 				instaPost.addEventListener('click',function(evt){
-				text.setAttribute("value","https://www.instagram.com/love_in_tom");
-				currentTab = 'Insta';
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost1';
 				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost2';
+				});		
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost3';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost4';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost5';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost6';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost7';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost8';
+				});		
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost9';
+				});
+				instaPost.addEventListener('click',function(evt){
+				text.setAttribute("value","show in Instagram");
+				currentTab = 'Instapost10';
+				});				
 				text.addEventListener('click', function(evt) {
-					if (currentTab == 'Insta') {
-						window.location.href = "https://www.instagram.com/love_in_tom";
+					if (currentTab == 'Instapost1') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/C0CORFrP20g/";
 						}
 					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost2') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CvhnaI2Pp0Z/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost3') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CvPfeZspJ1h/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost4') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/Cu9o_2zP9N7/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost5') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/Ct1kv1tNq84/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost6') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CuZo_OrvcPL/";
+						}
+					});
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost7') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CwFv4HGvS5V/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost8') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CuHiEqON6sw/";
+						}
+					});	
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost9') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/CurnrOKvoJB/";
+						}
+					});
+				text.addEventListener('click', function(evt) {
+					if (currentTab == 'Instapost10') {
+						window.location.href = "https://www.instagram.com/love_in_tom/p/C4DsUuSPGr3/";
+						}
+					});					
 				}
 				
 			const showPortfolio = (done) => {
@@ -187,7 +268,6 @@
 				<img id="card9" src="assets/ar10.jpg"/>
 			</a-assets>
 
-		
 			<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
 			<a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
 				<!-- Card entity -->
@@ -210,7 +290,7 @@
 						<a-image class="clickable" id="insta-post" src="#card3" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item4" visible="false">
-						<a-image class="clickable" src="#card4" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+						<a-image class="clickable" id="insta-post" src="#card4" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>
 					<a-entity id="portfolio-item5" visible="false">
 						<a-image class="clickable" id="insta-post" src="#card5" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
@@ -223,6 +303,9 @@
 					</a-entity>
 					<a-entity id="portfolio-item8" visible="false">
 						<a-image class="clickable" id="insta-post" src="#card8" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
+					</a-entity>		
+					<a-entity id="portfolio-item9" visible="false">
+						<a-image class="clickable" id="insta-post" src="#card9" alpha-test="0.5" position="0 0 0" height="1.2" width="1.2"></a-image>
 					</a-entity>					
 					<a-image id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
 					<a-image id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0" height="0.15" width="0.15" visible="false"></a-image>
